@@ -8,7 +8,7 @@ public class ParsData {
         StringBuilder sb = new StringBuilder();
         for (String i : data) {
             if (i.length() == 1) {
-                if (i.equals("ж") || i.equals("м")) {
+                if (i.equals("f") || i.equals("m")) {
                     dataDic.put("пол", i);
                 } else{
                     try {
