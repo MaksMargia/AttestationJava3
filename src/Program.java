@@ -2,20 +2,20 @@ import java.util.HashMap;
 
 public class Program {
     public static void main(String[] args) {
-        ParsData parsData = new ParsData(); // Создается объект класса ParsData
-        String newFileName = null; // Иннициализация переменной
-        WriteFile writeFile = new WriteFile(); // Создается объект класса WriteFile
+        ParsData parsData = new ParsData();
+        String newFileName = null;
+        WriteFile writeFile = new WriteFile();
 
-        HashMap<String, Object> data = parsData.parsInputData(); // Иннициализация словаря
+        HashMap<String, Object> data = parsData.parsInputData();
         while (data.size() != 6) {
             try {
                 throw new NameException();
             } catch (NameException e) {
                 data = parsData.parsInputData();
             }
-        } // Цикл для ввода данных, пока пользователь не введет корректные данные
+        }
 
-        newFileName = data.get("lastName") + ".txt"; // Указывается файл для записи данных пользователя
+        newFileName = data.get("Фамилия") + ".txt";
         StringBuilder sb = new StringBuilder();
         for (String str : data.keySet()) {
             sb.append(data.get(str));
@@ -26,7 +26,7 @@ public class Program {
         System.out.println(data);
         String filePath = newFileName;
         System.out.println(filePath);
-        writeFile.writeData(String.valueOf(sb), filePath); // Вызывается метод класса WriteFile для записи в файл
+        writeFile.writeData(String.valueOf(sb), filePath);
 
     }
 }

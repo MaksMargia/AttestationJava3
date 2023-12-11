@@ -8,8 +8,8 @@ public class ParsData {
         StringBuilder sb = new StringBuilder();
         for (String i : data) {
             if (i.length() == 1) {
-                if (i.equals("f") || i.equals("m")) {
-                    dataDic.put("sex", i);
+                if (i.equals("ж") || i.equals("м")) {
+                    dataDic.put("пол", i);
                 } else{
                     try {
                         throw new SexException();
@@ -79,7 +79,7 @@ public class ParsData {
 
                     }
                     if (!flag) {
-                        dataDic.put("date", i);
+                        dataDic.put("дата рождения", i);
                     } else try {
                         throw new NameException();
                     } catch (NameException e) {
@@ -88,7 +88,7 @@ public class ParsData {
                 }
 
             } else if (i.matches("[0-9]+")) {
-                dataDic.put("tel", i);
+                dataDic.put("тел", i);
             } else if (i.matches("[А-Яа-я]+")) {
                 sb.append(i + " ");
             } else {
@@ -101,9 +101,9 @@ public class ParsData {
         }
         String[] fullName = String.valueOf(sb).split(" ");
         if (fullName.length == 3) {
-            dataDic.put("firstName", fullName[1]);
-            dataDic.put("lastName", fullName[0]);
-            dataDic.put("patronymic", fullName[2]);
+            dataDic.put("Имя", fullName[1]);
+            dataDic.put("Фамилия", fullName[0]);
+            dataDic.put("Отчество", fullName[2]);
         }
         return dataDic;
     }
